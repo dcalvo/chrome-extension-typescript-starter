@@ -5,10 +5,11 @@ const srcDir = path.join(__dirname, "..", "src");
 
 module.exports = {
     entry: {
-      popup: path.join(srcDir, 'popup.tsx'),
-      options: path.join(srcDir, 'options.tsx'),
-      background: path.join(srcDir, 'background.ts'),
-      content_script: path.join(srcDir, 'content_script.tsx'),
+        popup: path.join(__dirname, srcDir + 'popup.tsx'),
+        options: path.join(__dirname, srcDir + 'options.tsx'),
+        background: path.join(__dirname, srcDir + 'background.ts'),
+        content_script: path.join(__dirname, srcDir + 'content_script.tsx'),
+        hot_reload: path.join(__dirname, srcDir + 'hot_reload.ts'),
     },
     output: {
         path: path.join(__dirname, "../dist/js"),

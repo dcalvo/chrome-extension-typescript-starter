@@ -41,28 +41,21 @@ const Options = () => {
 
   return (
     <>
-      <div>
-        Favorite color:&nbsp;
-        <select
-          value={color}
-          onChange={(event) => setColor(event.target.value)}
-        >
-          <option value="red">red</option>
-          <option value="green">green</option>
-          <option value="blue">blue</option>
-          <option value="yellow">yellow</option>
-        </select>
-      </div>
-      <div>
-        <label>
-          <input
-            type="checkbox"
-            checked={like}
-            onChange={(event) => setLike(event.target.checked)}
-          />
-          I like colors.
-        </label>
-      </div>
+      Favorite color:
+      <select value={color} onChange={(event) => setColor(event.target.value)}>
+        <option value="red">red</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+        <option value="yellow">yellow</option>
+      </select>
+      <label>
+        <input
+          type="checkbox"
+          checked={like}
+          onChange={(event) => setLike(event.target.checked)}
+        />
+        I like colors.
+      </label>
       <div>{status}</div>
       <button onClick={saveOptions}>Save</button>
     </>
