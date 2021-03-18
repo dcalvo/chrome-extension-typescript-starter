@@ -20,6 +20,9 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}      
 
+      - name: install build tools
+        run: brew install imagemagick
+
       - name: install
         run: yarn
 
