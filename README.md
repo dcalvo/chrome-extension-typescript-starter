@@ -39,6 +39,22 @@ Chrome Extension, TypeScript and Visual Studio Code
 * dist/js: Generated JavaScript files
 
 ## Setup
+Repo has to have the following secrets for automatic publishing to work:
+```
+GOOGLE_CLIENT_ID=XXXXXX
+
+GOOGLE_CLIENT_SECRET=XXXXXX
+
+GOOGLE_REFRESH_TOKEN=XXXXXX
+
+FIREFOX_EMAIL=XXXXXX@XXXXXX.com
+
+FIREFOX_PASSWORD=XXXXXX
+
+FIREFOX_TOTP_SECRET=XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX
+```
+
+Addon slug and extension ID also have to be included in the `.releaserc.json` config file for Firefox and Chrome, respectively.
 
 ```
 yarn
