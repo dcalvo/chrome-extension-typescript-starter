@@ -1,0 +1,51 @@
+{
+  "plugins": [
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "linkCompare": false,
+        "linkReferences": false
+      }
+    ]
+  ],
+  "verifyConditions": [
+    "semantic-release-firefox",
+    "semantic-release-chrome",
+    "@semantic-release/github"
+  ],
+  "prepare": [
+    {
+      "path": "semantic-release-firefox",
+      "xpiPath": "firefox.xpi",
+      "distFolder": "dist"
+    },
+    {
+      "path": "semantic-release-chrome",
+      "asset": "chrome.zip"
+    }
+  ],
+  "publish": [
+    {
+      "path": "semantic-release-firefox",
+      "xpiPath": "firefox.xpi",
+      "addOnSlug": "ADDON_SLUG_HERE",
+      "notesToReviewer": "Run `yarn` then `yarn build:firefox`. Output is in `dist/`"
+    },
+    {
+      "path": "semantic-release-chrome",
+      "asset": "chrome.zip",
+      "extensionId": "EXTENSION_ID_HERE"
+    },
+    {
+      "path": "@semantic-release/github",
+      "assets": [
+        {
+          "path": "firefox.xpi"
+        },
+        {
+          "path": "chrome.zip"
+        }
+      ]
+    }
+  ]
+}

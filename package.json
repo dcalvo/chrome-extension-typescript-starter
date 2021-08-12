@@ -4,13 +4,16 @@
   "description": "chrome-extension-typescript-starter",
   "scripts": {
     "watch": "webpack --config webpack/webpack.dev.js --watch",
-    "build": "webpack --config webpack/webpack.prod.js",
+    "build": "yarn build:firefox && yarn build:chrome",
+    "build:chrome": "webpack --config webpack/webpack.prod.js && zip -r chrome.zip dist",
+    "zip": "zip -r src.zip . -x 'node_modules/*' '.git/*'",
+    "build:firefox": "yarn zip && webpack --config webpack/webpack.prod.js && cd dist && zip -r ../firefox.zip .",
     "clean": "rimraf dist",
     "test": "npx jest",
     "style": "prettier \"src/**/*.{ts,tsx}\" --write",
     "prepare": "./prepare_icons.sh"
   },
-  "prettier":{
+  "prettier": {
     "semi": false
   },
   "author": "",
@@ -33,6 +36,9 @@
     "jest": "^25.1.0",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2 ",
+    "semantic-release": "^17.4.4",
+    "semantic-release-chrome": "^1.1.3",
+    "semantic-release-firefox": "^2.0.10",
     "ts-jest": "^25.2.1 ",
     "ts-loader": "^6.2.1",
     "typescript": "~3.8.3 ",
